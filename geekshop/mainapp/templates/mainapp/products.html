@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/geekshop/styles.css">
-    <title>Geekshop</title>
-</head>
 
-<body>
-    <header class="header_area">
-        <div class="top_menu display-flex justify-content-sb">
-            <div class="top_menu_left display-flex ">
-                <a class="m-r-100" href="mailto:support@geekshop.com">support@geekshop.com</a>
-                <a href="#">Welcome to Geekshop</a>
-            </div>
-            <div class="top_menu_right justify-content-sb">
-                <ul class="header_social display-flex justify-content-sb">
-                    <li class="m-r-15"><a href="#"><i class="fa fa-facebook"></i>&#9733;</a></li>
-                    <li class="m-r-15"><a href="#"><i class="fa fa-twitter"></i>&#8469;</a></li>
-                    <li class="m-r-15"><a href="#"><i class="fa fa-dribbble"></i>&#8486;</a></li>
-                    <li class="m-r-15"><a href="#"><i class="fa fa-GB"></i>&#9736;</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <nav class="navbar main_box display-flex justify-content-sb">
-            <a href="/" class="navbar-brand">GeekShop</a>
-            <ul class="navbar-menu display-flex justify-content-sb">
-                <li class="m-r-30"><a href="/">Домой</a></li>
-                <li class="m-r-30"><a href="/products">Каталог</a></li>
-                <li><a href="/contacts/">Контакты</a></li>
-            </ul>
-        </nav>
-        
-    </header>
-    <<main>
+{% block content %}
+    <main>
         <section class="feature_product_area">
             <div class="main_box">
                 <div class="container">
@@ -45,103 +12,15 @@
                             <h2>Best Products</h2>
                             <p>Who are in extremely love with eco friendly system.</p>
                         </div>
-                        <div class="owl-stage display-flex">
-                            <div class="owl-item m-r-30">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
-                            <div class="owl-item m-r-30">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
-                            <div class="owl-item m-r-30">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
-                            <div class="owl-item">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
+                        <div class="owl-stage display-flex flex-wrap">
+
+                            {% include 'includes/inc_item_in_catalog.html' %}
+
                         </div>
 
-                        <div class="owl-stage display-flex">
-                            <div class="owl-item m-r-30">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
-                            <div class="owl-item m-r-30">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
-                            <div class="owl-item m-r-30">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
-                            <div class="owl-item">
-                                <div class="item">
-                                    <div class="f_p_item">
-                                        <div class="f_p_img">
-                                            <img class="img-fluid" src="/static/geekshop/img/f-p-1.jpg" alt="">
-                                        </div>
-                                        <a href="#"><h4>Colored sneakers</h4></a>
-                                        <h5>$150.00</h5>
-                                    </div>
-							    </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-</body>
-</html>
+{% endblock %}
