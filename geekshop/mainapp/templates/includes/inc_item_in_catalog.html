@@ -4,10 +4,11 @@
     <div class="item">
         <div class="f_p_item">
             <div class="f_p_img">
-                <img class="img-fluid" src="/static/geekshop/img/{{ item.img }}" alt="item">
+                <img class="img-fluid" src="/media/{{ item.image }}" alt="item">
             </div>
             <a href="#"><h4>{{ item.name }}</h4></a>
-            <h5>${{ item.price }}</h5>
+            <h4>{{ item.description }}</h4>
+            <h5>{{ item.price }} ₽</h5>
         </div>
     </div>
 </div>
