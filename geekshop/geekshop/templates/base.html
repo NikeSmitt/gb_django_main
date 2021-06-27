@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/geekshop/styles.css' %}">
+    <title>{% block title %}{{ title | title }}{% endblock %}</title>
+</head>
+
+<body>
+    {% include 'includes/inc_main_header.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'includes/inc_main_footer.html' %}
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{% for item in catalog_items %}
+
+<div class="owl-item m-r-30">
+    <div class="item">
+        <div class="f_p_item">
+            <div class="f_p_img">
+                <img class="img-fluid" src="/static/geekshop/img/{{ item.img }}" alt="item">
+            </div>
+            <a href="#"><h4>{{ item.name }}</h4></a>
+            <h5>${{ item.price }}</h5>
+        </div>
+    </div>
+</div>
+
+{% endfor %}

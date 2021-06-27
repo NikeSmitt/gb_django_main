@@ -1,0 +1,27 @@
+{%  load static %}
+
+<header class="header_area">
+        <div class="top_menu display-flex justify-content-sb">
+            <div class="top_menu_left display-flex ">
+                <a class="m-r-100" href="mailto:support@geekshop.com">support@geekshop.com</a>
+                <a href="{% url 'index' %}">Welcome to Geekshop</a>
+            </div>
+            <div class="top_menu_right justify-content-sb">
+                <ul class="header_social display-flex justify-content-sb">
+                    <li class="m-r-15"><a href="#"><i class="fa fa-facebook"></i>&#9733;</a></li>
+                    <li class="m-r-15"><a href="#"><i class="fa fa-twitter"></i>&#8469;</a></li>
+                    <li class="m-r-15"><a href="#"><i class="fa fa-dribbble"></i>&#8486;</a></li>
+                    <li class="m-r-15"><a href="#"><i class="fa fa-GB"></i>&#9736;</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <nav class="navbar main_box display-flex justify-content-sb">
+            <a href="{% url 'index' %}" class="navbar-brand">GeekShop</a>
+            <ul class="navbar-menu display-flex justify-content-sb">
+                <li class="m-r-30"><a href="{% url 'index' %}">Домой</a></li>
+                <li class="m-r-30"><a href="{% url 'products:index' %}">Каталог</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
