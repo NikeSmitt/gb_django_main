@@ -47,6 +47,10 @@ img {
     justify-content: space-between;
 }
 
+justify-content-center {
+    justify-content: center;
+}
+
 .justify-content-center {
     justify-content: center;
 }

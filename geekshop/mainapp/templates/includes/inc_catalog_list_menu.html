@@ -1,0 +1,8 @@
+
+    <nav class="navbar main_box display-flex justify-content-center">
+        <ul class="navbar-menu display-flex justify-content-sb">
+            {% for catalog in catalogs %}
+            <li class="m-r-30"><a href="#">{{ catalog.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
