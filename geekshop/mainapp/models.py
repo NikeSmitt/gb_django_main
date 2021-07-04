@@ -21,7 +21,7 @@ class ProductCategory(models.Model):
         verbose_name_plural = 'категории'
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.name} (id:{self.id})"
 
 
 class Product(models.Model):

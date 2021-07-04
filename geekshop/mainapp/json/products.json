@@ -1,0 +1,34 @@
+[
+  {
+    "category": 1,
+    "name": "кроссовки Jordan 1",
+    "description": "Закругленный носок, плоская резиновая подошва",
+    "image": "products_images/15776453_29224230_1000.jpg",
+    "price": "10300.00",
+    "quantity": 2
+  },
+  {
+    "category": 2,
+    "name": "Лыжные брюки Palmares",
+    "description": "Лыжные брюки Palmares от Rossignol",
+    "image": "products_images/14370267_22990595_1000.jpg",
+    "price": "27550.00",
+    "quantity": 1
+  },
+  {
+    "category": 3,
+    "name": "Пуховик Odin Lifaloft",
+    "description": "Вышитый логотип, стеганная модель",
+    "image": "products_images/15904516_29609676_1000.jpg",
+    "price": "16893.00",
+    "quantity": 2
+  },
+  {
+    "category": 3,
+    "name": "Nicholas Daley",
+    "description": "широкие брюки с завязками",
+    "image": "products_images/15877673_32320291_1000.jpg",
+    "price": "18968.00",
+    "quantity": 2
+  }
+]
