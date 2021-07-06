@@ -13,9 +13,16 @@ a {
     text-decoration: none;
 }
 
+
 img {
     vertical-align: middle;
     border-style: none;
+}
+
+
+.active {
+    text-decoration: underline;
+    color: #fa9c99;
 }
 
 .header_area {
@@ -70,7 +77,6 @@ justify-content-center {
 .m-r-100 {
     margin-right: 100px;
 }
-
 
 
 .header_social {
@@ -165,8 +171,7 @@ li a {
 
 .hot_p_item .product_text {
     position: absolute;
-    left: 0
-;
+    left: 0;
     top: 0px;
     height: 100%;
 }
@@ -257,7 +262,6 @@ li a {
 }
 
 
-
 .col-lg-3, .col-lg-9, .col-md-6, .col-md-12 {
     position: relative;
     width: 100%;
@@ -281,4 +285,55 @@ li a {
 .footer p {
     padding: 30px;
     text-align: center;
+}
+
+.f_p_img {
+    position: relative;
+}
+
+.buy_menu {
+    position: absolute;
+    color: white;
+    font-size: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+
+}
+
+.f_p_img:hover .buy_menu {
+    display: block;
+}
+
+.basket {
+    color: #e09b92;
+}
+
+.table_col {
+  width: 660px;
+  background: white;
+  text-align: left;
+  border-collapse: collapse;
+}
+.table_col th:first-child, .table_col td:first-child {
+border-left: none;
+}
+.table_col th {
+font-weight: normal;
+border-bottom: 2px solid;
+border-right: 20px solid white;
+border-left: 20px solid white;
+padding: 8px 10px;
+}
+.table_col td {
+border-right: 20px solid white;
+border-left: 20px solid white;
+padding: 12px 10px;
+color: #8b8e91;
+}
+
+
+.p30 {
+    padding: 30px;
 }

@@ -29,6 +29,13 @@
                     </a>
                 </li>
             {% endif %}
+
+            {% if user.is_authenticated %}
+                <li class="m-r-30">
+                    <a class="basket" href="{% url 'basket:index' %}">корзина: {{ basket_items }} сумма: {{ basket_total }}</a>
+                </li>
+            {% endif %}
+
             <li class="m-r-30">
                 {% if user.is_authenticated %}
                     <a href="{% url 'auth:logout' %}">выйти</a>
@@ -36,6 +43,7 @@
                     <a href="{% url 'auth:login' %}">войти</a>
                 {% endif %}
             </li>
+
 
         </ul>
     </nav>

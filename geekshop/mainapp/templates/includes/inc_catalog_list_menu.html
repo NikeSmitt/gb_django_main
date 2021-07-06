@@ -1,8 +1,19 @@
-
-    <nav class="navbar main_box display-flex justify-content-center">
-        <ul class="navbar-menu display-flex justify-content-sb">
-            {% for catalog in catalogs %}
-            <li class="m-r-30"><a href="#">{{ catalog.name }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
+<nav class="navbar main_box display-flex justify-content-center">
+    <ul class="navbar-menu display-flex justify-content-sb">
+        <li class="m-r-30">
+            <a href="{% url 'products:category' 0 %}"
+               class="{% if request.resolver_match.kwargs.pk == 0 %}active{% endif %}">
+                все</a>
+        </li>
+        {% for catalog in catalogs %}
+            <li class="m-r-30">
+                <a href="{% url 'products:category' catalog.pk %}"
+                   class="{% if request.resolver_match.kwargs.pk == catalog.pk %}
+                                  active
+                    {% endif %}">
+                    {{ catalog.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
