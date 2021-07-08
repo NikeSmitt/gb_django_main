@@ -1,33 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block content %}
-    <div class="main_box p30">
-        <table class="table_col">
-            <tr>
-                <th>Номер</th>
-                <th>Продукт</th>
-                <th>Категория</th>
-                <th>Количество</th>
-                <th>Сумма</th>
-                <th>Удалить</th>
-            </tr>
-            {% for item in basket %}
-                <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ item.product.name }}</td>
-                    <td>{{ item.product.category.name }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.total_price }}</td>
-                    <td><a href="{% url 'basket:remove' item.product.pk %}">X</a></td>
+    {% include 'basketapp/includes/inc_basket_table.html' %}
+{% endblock %}
 
-                </tr>
-
-            {% endfor %}
-            <tr>
-                <td colspan="6">Сумма:xxx</td>
-            </tr>
-        </table>
-    </div>
+{% block js %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'basketapp/js/script.js' %}"></script>
 {% endblock %}

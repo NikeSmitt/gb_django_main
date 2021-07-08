@@ -1,28 +1,28 @@
 from django.shortcuts import render
 
+from basketapp.get_basket import get_basket
 from basketapp.models import Basket
-from basketapp.get_basket import get_basket, get_total_items, get_total_sum
 
 
 def index(request):
     items = []
+
     context = {
         'hot_items': items,
         'title': '$$$Geekshop$$$',
-        'basket': get_basket(request),
-        'basket_items': get_total_items(request),
-        'basket_total': get_total_sum(request),
-
+        'basket': get_basket(request.user),
     }
     return render(request, 'index.html', context=context)
 
 
 def contacts(request):
+    basket = None
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     context = {
         'title': 'Geekshop - Contacts',
-        'basket': get_basket(request),
-        'basket_items': get_total_items(request),
-        'basket_total': get_total_sum(request),
+        'basket': get_basket(request.user),
 
     }
     return render(request, 'contacts.html', context=context)
