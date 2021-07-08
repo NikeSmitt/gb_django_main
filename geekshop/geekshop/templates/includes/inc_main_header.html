@@ -32,7 +32,8 @@
 
             {% if user.is_authenticated %}
                 <li class="m-r-30">
-                    <a class="basket" href="{% url 'basket:index' %}">корзина: {{ basket_items }} сумма: {{ basket_total }}</a>
+                    <a class="basket" href="{% url 'basket:index' %}">корзина: {{ basket.0.get_total_items }}
+                        сумма: {{ basket.0.get_total_sum }}</a>
                 </li>
             {% endif %}
 

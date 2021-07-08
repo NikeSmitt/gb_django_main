@@ -18,7 +18,7 @@
                                 </a>
                             </div>
 
-                            <a href="#"><h4>{{ item.name }}</h4></a>
+                            <a href="{% url 'products:product' item.pk %}"><h4>{{ item.name }}</h4></a>
                             <h4>{{ item.description }}</h4>
                             <h5>{{ item.price }} ₽</h5>
                         </div>
