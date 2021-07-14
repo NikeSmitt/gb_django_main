@@ -34,11 +34,6 @@ class ShopUserRegisterForm(UserCreationForm):
             raise forms.ValidationError('Вы слишком молоды!')
         return data
 
-    # def clean_email(self):
-    #     mail = self.cleaned_data['email']
-    #     if not re.match('[^@]+@[^@]+\.[^@]+', mail):
-    #         raise forms.ValidationError()
-
 
 class ShopUserEditForm(UserChangeForm):
     class Meta:

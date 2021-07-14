@@ -27,7 +27,9 @@ def products(request, pk=None):
     else:
         title = 'our best sellers'
         catalog_desc = 'Being something that everyone does literally every day'
-        items = random.sample(list(Product.objects.all()), 2)
+        _products = list(Product.objects.all())
+        if len(_products):
+            items = random.sample(_products, min(len(_products), 5))
 
     context = {
         'title': title,

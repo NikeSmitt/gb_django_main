@@ -3,10 +3,10 @@ from django.shortcuts import render
 from django.contrib import auth
 from django.urls import reverse
 
-from authapp.forms import ShopUserLoginForm
-from authapp.forms import ShopUserRegisterForm
+from .forms import ShopUserLoginForm
+from .forms import ShopUserRegisterForm
 
-from authapp.forms import ShopUserEditForm
+from .forms import ShopUserEditForm
 
 
 def login(request):
