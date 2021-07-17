@@ -22,6 +22,16 @@
             <li class="m-r-30"><a href="{% url 'index' %}">Домой</a></li>
             <li class="m-r-30"><a href="{% url 'products:index' %}">Каталог</a></li>
             <li class="m-r-30"><a href="{% url 'contacts' %}">Контакты</a></li>
+
+            {% if user.is_superuser %}
+                <li class="m-r-30">
+                    <a href="{% url 'admin_staff:users' %}">
+                        Админка
+                    </a>
+                </li>
+            {% endif %}
+
+
             {% if user.is_authenticated %}
                 <li class="m-r-30">
                     <a href="{% url 'auth:edit' %}">
@@ -32,8 +42,9 @@
 
             {% if user.is_authenticated %}
                 <li class="m-r-30">
-                    <a class="basket" href="{% url 'basket:index' %}">корзина: {{ basket.0.get_total_items }}
-                        сумма: {{ basket.0.get_total_sum }}</a>
+                    <a class="basket"
+                       href="{% url 'basket:index' %}">корзина: {{ basket.0.get_total_items|default:'0' }}
+                        сумма: {{ basket.0.get_total_sum|default:'0' }}</a>
                 </li>
             {% endif %}
 

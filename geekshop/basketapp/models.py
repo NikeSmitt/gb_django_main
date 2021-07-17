@@ -26,6 +26,10 @@ class Basket(models.Model):
         auto_now_add=True,
     )
 
+    is_deleted = models.BooleanField(
+        default=False,
+    )
+
     @property
     def total_price(self):
         return self.product.price * self.quantity
@@ -39,4 +43,3 @@ class Basket(models.Model):
     def get_total_sum(self):
         basket = Basket.objects.filter(user=self.user)
         return sum([b.total_price for b in basket])
-
