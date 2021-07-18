@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load my_tags %}
 
 
 {% block content %}
@@ -8,7 +9,7 @@
             <div class="item">
                 <div class="f_p_item">
                     <div class="f_p_img">
-                        <img class="img-fluid" src="/media/{{ product.image }}" alt="item">
+                        <img class="img-fluid" src="media/{{ product.image|media_folder_products }}" alt="item">
                         <a href="{% url 'basket:add' product.pk %}" class="buy_menu">
                             <img src="{% static 'geekshop/img/buy.svg' %}" alt="buy">
                         </a>
