@@ -1,0 +1,21 @@
+{% extends 'adminapp/base.html' %}
+{% load my_tags %}
+
+{% block content %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{ product.image|media_folder_products }}" class="card-img-top" alt="product_image">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Категория: {{ product.category.name }}</li>
+            <li class="list-group-item">Цена: {{ product.price }}</li>
+            <li class="list-group-item">Количество: {{ product.quantity }} шт.</li>
+        </ul>
+{#        <div class="card-body">#}
+{#            <a href="#" class="card-link">Card link</a>#}
+{#            <a href="#" class="card-link">Another link</a>#}
+{#        </div>#}
+    </div>
+{% endblock %}

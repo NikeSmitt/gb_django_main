@@ -36,14 +36,14 @@
                             <tbody>
                             {% for product in objects %}
                                 <tr {% if product.is_deleted %} style="opacity: 0.5;" {% endif %}>
-                                    <td><a href="{#% url 'admin_staff:product_update' product.id %#}"
+                                    <td><a href="{% url 'admin_staff:product_read' product.id %}"
                                            style="color: dodgerblue">{{ product.name }}</a></td>
                                     <td>{{ product.description }}</td>
                                     <td>{{ product.quantity }}</td>
 
                                     <td>{{ product.price }}</td>
                                     <td>
-                                        <a href="{#% url 'admin_staff:product_update' pk=product.id %#}">
+                                        <a href="{% url 'admin_staff:product_update' pk=product.id %}">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                     </td>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="{#% url 'adminapp:product_create' %#}">
+                    <a href="{% url 'admin_staff:product_create' category.pk %}">
                         <button class="btn btn-success">Создать продукт</button>
                     </a>
                 </div>

@@ -1,18 +1,36 @@
 {% load static %}
+{% load my_tags %}
 <div class="container">
     <div class="feature_product_inner">
         <div class="main_title">
             <h2>{{ title|title }}</h2>
             <p>{{ catalog_desc }}</p>
-        </div>
-        <div class="owl-stage display-flex flex-wrap">
+            <div>
+                {% if products.has_previous %}
+                    <a href="{% url 'products:page' category products.previous_page_number %}">
+                        <
+                    </a>
+                {% endif %}
+                <span>
+                    страница {{ products.number }} из {{ products.paginator.num_pages }}
+                </span>
 
-            {% for item in catalog_items %}
+                {% if products.has_next %}
+                    <a href="{% url 'products:page' category products.next_page_number %}">
+                        >
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="owl-stage display-flex flex-wrap justify-content-center">
+
+            {% for item in products %}
                 <div class="owl-item m-r-30">
                     <div class="item">
                         <div class="f_p_item">
                             <div class="f_p_img">
-                                <img class="img-fluid" src="/media/{{ item.image }}" alt="item">
+                                <img class="img-fluid" src="{{ item.image|media_folder_products }}" alt="item">
                                 <a href="{% url 'basket:add' item.pk %}" class="buy_menu">
                                     <img src="{% static 'geekshop/img/buy.svg' %}" alt="buy">
                                 </a>

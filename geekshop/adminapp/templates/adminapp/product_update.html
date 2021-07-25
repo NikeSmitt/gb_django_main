@@ -1,0 +1,25 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="col-3 mx-auto">
+        {% if is_update %}
+            <form class="form-horizontal" method="post"
+                  enctype="multipart/form-data">
+        {% else %}
+            <form class="form-horizontal" action="{% url 'admin_staff:product_create' category.pk %}" method="post"
+                  enctype="multipart/form-data">
+        {% endif %}
+
+        {% csrf_token %}
+        {{ update_form.as_p }}
+
+        {% if is_update %}
+            <input class="form-control" type="submit" value="Обновить">
+        {% else %}
+            <input class="form-control" type="submit" value="Создать">
+        {% endif %}
+        </form>
+    </div>
+
+{% endblock %}
