@@ -43,7 +43,6 @@ def products(request, pk=None, page=1):
         'products': products_paginator,
         'catalogs': catalogs,
         'catalog_desc': catalog_desc,
-        'basket': get_basket(request.user),
         'category': pk,
     }
     return render(request, 'mainapp/products.html', context=context)
@@ -55,6 +54,5 @@ def product(request, pk):
         'title': title,
         'catalogs': ProductCategory.objects.all(),
         'product': get_object_or_404(Product, pk=pk),
-        'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/product.html', context=context)

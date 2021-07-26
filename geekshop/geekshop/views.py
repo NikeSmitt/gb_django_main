@@ -10,7 +10,6 @@ def index(request):
     context = {
         'hot_items': items,
         'title': '$$$Geekshop$$$',
-        'basket': get_basket(request.user),
     }
     return render(request, 'index.html', context=context)
 
@@ -22,7 +21,6 @@ def contacts(request):
 
     context = {
         'title': 'Geekshop - Contacts',
-        'basket': get_basket(request.user),
 
     }
     return render(request, 'contacts.html', context=context)
