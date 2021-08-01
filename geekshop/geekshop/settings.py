@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'authapp',
     'basketapp',
     'adminapp',
-
+    'ordersapp',
     'social_django',
 ]
 
@@ -156,7 +156,7 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -177,8 +177,6 @@ EMAIL_FILE_PATH = 'tmp/email-messages/'
 
 
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '0a41085e5da605'
-EMAIL_HOST_PASSWORD = '873fc0f78da7d0'
 EMAIL_PORT = '465'
 EMAIL_USE_TLS = True
 
@@ -187,8 +185,10 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.vk.VKOAuth2',
 )
 
-with open('geekshop/vk.json', 'r') as f:
-    VK = json.load(f)
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = VK['SOCIAL_AUTH_VK_OAUTH2_KEY']
-SOCIAL_AUTH_VK_OAUTH2_SECRET = VK['SOCIAL_AUTH_VK_OAUTH2_SECRET']
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = env('SOCIAL_AUTH_VK_OAUTH2_KEY')
+SOCIAL_AUTH_VK_OAUTH2_SECRET = env('SOCIAL_AUTH_VK_OAUTH2_SECRET')
+

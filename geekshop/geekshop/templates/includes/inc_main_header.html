@@ -32,12 +32,30 @@
             {% endif %}
 
 
+
+
             {% if user.is_authenticated %}
                 <li class="m-r-30">
-                    <a href="{% url 'auth:edit' %}">
-                        {{ user.first_name|default:'Пользователь' }}
-                    </a>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown">
+                            {{ user.first_name|default:'Пользователь' }}
+                            <span class="fa-caret-down"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li class="dropdown-item">
+                                <a href="{% url 'auth:edit' %}">
+                                    Профиль
+                                </a>
+                            </li>
+                            <li class="dropdown-item" aria-labelledby="dropdownMenuLink">
+                                <a href="{% url 'ordersapp:orders_list' %}">
+                                    Заказы </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
             {% endif %}
 
             {% if user.is_authenticated %}

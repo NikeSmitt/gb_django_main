@@ -108,8 +108,9 @@ li a {
 }
 
 .navbar-menu {
+    padding: 20px;
     text-transform: uppercase;
-    font: 500 12px/80px "Roboto", sans-serif;
+    font: 500 12px "Roboto", sans-serif;
     color: #222222;
     list-style-type: none;
 }
