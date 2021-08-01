@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'basketapp',
     'adminapp',
     'ordersapp',
-
     'social_django',
 ]
 
@@ -186,8 +185,10 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.vk.VKOAuth2',
 )
 
+
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = env('SOCIAL_AUTH_VK_OAUTH2_KEY')
 SOCIAL_AUTH_VK_OAUTH2_SECRET = env('SOCIAL_AUTH_VK_OAUTH2_SECRET')
+
