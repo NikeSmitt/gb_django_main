@@ -5,7 +5,16 @@ from geekshop import settings
 from mainapp.models import Product
 
 
+class BasketQuerySet(models.QuerySet):
+    def delete(self):
+        for object in self:
+            object.product.quantity += object.quantity
+            object.product.save()
+            super(BasketQuerySet.__class__, self).delete()
+
+
 class Basket(models.Model):
+    objects = BasketQuerySet.as_manager()
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -43,3 +52,7 @@ class Basket(models.Model):
     def get_total_sum(self):
         basket = Basket.objects.filter(user=self.user)
         return sum([b.total_price for b in basket])
+
+    @staticmethod
+    def get_item(pk):
+        return Basket.objects.filter(pk=pk).first()
