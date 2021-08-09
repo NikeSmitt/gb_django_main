@@ -1,4 +1,5 @@
 window.onload = function () {
+
     let _quantity, _price, orderitem_num, delta_quantity, orderitem_quantity, delta_cost;
     let quantity_arr = [];
     let price_arr = [];
@@ -10,11 +11,14 @@ window.onload = function () {
     let order_total_price = parseFloat($('.order_total_cost').text().replace(',', '.')) || 0;
 
     for (let i = 0; i < total_forms; i++) {
+
         _quantity = parseInt($('input[name=orderitems-' + i + '-quantity]').val());
         _price = parseFloat($('.orderitems-' + i + '-price').text().replace(',', '.'));
 
         quantity_arr[i] = _quantity;
+
         if (_price) {
+
             price_arr[i] = _price;
         } else {
             price_arr[i] = 0;
@@ -23,16 +27,19 @@ window.onload = function () {
         console.info('QUANTITY_ARR: ', quantity_arr);
         console.log(price_arr);
 
+
         $('.order_form').on('click', 'input[type=number]', function () {
             let target = event.target;
             orderitem_num = parseInt(target.name.replace('orderitems-', '').replace('-quantity', ''));
             if (price_arr[orderitem_num]) {
+
                 orderitem_quantity = parseInt(target.value);
                 delta_quantity = orderitem_quantity - quantity_arr[orderitem_num];
                 quantity_arr[orderitem_num] = orderitem_quantity;
                 orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
             }
         });
+
 
         $('.order_form').on('click', 'input[type=checkbox]', function () {
             let target = event.target;
@@ -45,7 +52,9 @@ window.onload = function () {
             orderSummaryUpdate(price_arr[orderitem_num], delta_quantity);
         });
 
+
         function orderSummaryUpdate(orderitem_price, delta_quantity) {
+
             delta_cost = orderitem_price * delta_quantity;
             order_total_price = Number((order_total_price + delta_cost).toFixed(2));
 
@@ -118,7 +127,5 @@ window.onload = function () {
                 }
             });
         }
-
     });
-
 };
