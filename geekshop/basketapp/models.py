@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Sum
+from django.utils.functional import cached_property
 
 from geekshop import settings
 from mainapp.models import Product
@@ -56,3 +57,15 @@ class Basket(models.Model):
     @staticmethod
     def get_item(pk):
         return Basket.objects.filter(pk=pk).first()
+
+    @cached_property
+    def get_items_cached(self):
+        return self.user.basket.select_related()
+
+    def get_total_quantity(self):
+        _items = self.get_items_cached
+        return sum(list(map(lambda x: x.quantity, _items)))
+
+    def get_total_cost(self):
+        _items = self.get_items_cached
+        return sum(list(map(lambda x: x.product_cost, _items)))
