@@ -1,8 +1,10 @@
+from django.db import connection
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test
-
 
 from authapp.models import ShopUser
 from mainapp.models import ProductCategory
@@ -257,3 +259,20 @@ def product_delete(request, pk):
         return HttpResponseRedirect(reverse('admin_staff:products', kwargs={'pk': category_id}))
 
     return render(request, 'adminapp/product_delete.html', context)
+
+
+def db_profile_by_type(prefix, type, queries):
+    update_queries = list(filter(lambda x: type in x['sql'], queries))
+    print(f'db_profile {type} for {prefix}:')
+    [print(query['sql']) for query in update_queries]
+
+
+@receiver(pre_save, sender=ProductCategory)
+def product_is_active_update_productcategory_save(sender, instance, **kwargs):
+    if instance.pk:
+        if instance.is_deleted:
+            instance.product_set.update(is_deleted=True)
+        else:
+            instance.product_set.update(is_deleted=False)
+
+        db_profile_by_type(sender, 'UPDATE', connection.queries)
