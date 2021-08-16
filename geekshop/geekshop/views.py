@@ -15,12 +15,7 @@ def index(request):
 
 
 def contacts(request):
-    basket = None
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-
     context = {
         'title': 'Geekshop - Contacts',
-
     }
     return render(request, 'contacts.html', context=context)
